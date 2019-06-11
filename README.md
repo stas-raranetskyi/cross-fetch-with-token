@@ -30,7 +30,7 @@ fetch('url').then(res => {
 Option | Type | Default
 ------ | ---- | -------
 urlToken | string | /
-storeKeyToken | string | MY.APP
+storeKeyToken | string | MY.APP.token
 expiresToken | nubmer | 86400ms (1 day)
 clientData | object | {}
 
