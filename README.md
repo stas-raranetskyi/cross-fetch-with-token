@@ -29,7 +29,7 @@ fetch('url').then(res => {
 
 Option | Type | Default
 ------ | ---- | -------
-urlToken | string | ''
+urlToken | string | /
 localStorePrefix | string | MY.APP
 expiresToken | nubmer | 86400 (1 day)
 clientData | object | {}
