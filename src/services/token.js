@@ -23,7 +23,7 @@ class Token{
 
     getTokenFromStorage(){
         try{
-            return getCookie(settings.storeKey, this.document);
+            return getCookie(settings.storeKeyToken, this.document);
         }
         catch{
             return null;
@@ -34,7 +34,7 @@ class Token{
         try{
             this.set(token);
             const expires = settings.expiresToken;
-            setCookie(settings.storeKey, token, this.document, {
+            setCookie(settings.storeKeyToken, token, this.document, {
                 expires,
                 path: '/'
             });
@@ -47,7 +47,7 @@ class Token{
     removeTokenFromStorage(){
         try{
             this.token = null;
-            deleteCookie(settings.storeKey, this.document);
+            deleteCookie(settings.storeKeyToken, this.document);
         }
         catch(err){
             console.log(err);
