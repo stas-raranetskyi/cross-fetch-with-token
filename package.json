@@ -1,0 +1,24 @@
+{
+  "name": "fetch-with-token",
+  "version": "1.0.0",
+  "description": "fetch with token",
+  "main": "index.js",
+  "homepage": "https://github.com/stas-raranetskyi/fetch-with-token",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stas-raranetskyi/fetch-with-token"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fetch",
+    "with",
+    "token"
+  ],
+  "author": "Stas Raranetskyi",
+  "license": "ISC",
+  "dependencies": {
+    "cross-fetch": "^3.0.4"
+  }
+}
