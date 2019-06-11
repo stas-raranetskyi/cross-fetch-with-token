@@ -1,6 +1,6 @@
 
 module.exports = {
-    localStorePrefix: 'MY.APP',
+    storeKey: 'MY.APP.token',
     urlToken: '',
     expiresToken: 24 * 60 * 60,
     clientData: {},

@@ -17,14 +17,13 @@ class Token{
             return this.__proto__.instance;
         }
         this.document = document;
-        this.storageKey = `${settings.localStorePrefix}.token`;
         this.token = this.getTokenFromStorage();
         this.__proto__.instance = this;
     }
 
     getTokenFromStorage(){
         try{
-            return getCookie(this.storageKey, this.document);
+            return getCookie(settings.storeKey, this.document);
         }
         catch{
             return null;
@@ -35,7 +34,7 @@ class Token{
         try{
             this.set(token);
             const expires = settings.expiresToken;
-            setCookie(this.storageKey, token, this.document, {
+            setCookie(settings.storeKey, token, this.document, {
                 expires,
                 path: '/'
             });
@@ -48,7 +47,7 @@ class Token{
     removeTokenFromStorage(){
         try{
             this.token = null;
-            deleteCookie(this.storageKey, this.document);
+            deleteCookie(settings.storeKey, this.document);
         }
         catch(err){
             console.log(err);
