@@ -31,7 +31,7 @@ Option | Type | Default
 ------ | ---- | -------
 urlToken | string | /
 storeKeyToken | string | MY.APP
-expiresToken | nubmer | 86400 (1 day)
+expiresToken | nubmer | 86400ms (1 day)
 clientData | object | {}
 
 ## Author
