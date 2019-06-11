@@ -1,6 +1,6 @@
 {
-  "name": "fetch-with-token1",
-  "version": "1.0.1",
+  "name": "fetch-with-token",
+  "version": "0.1.0",
   "description": "fetch with token",
   "main": "index.js",
   "repository": {
