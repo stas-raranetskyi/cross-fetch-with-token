@@ -1,7 +1,7 @@
 ## Install
 
 ```sh
-npm install --save fetch-with-token
+npm install --save cross-fetch-with-token
 ```
 
 ## Usage
@@ -9,7 +9,7 @@ npm install --save fetch-with-token
 With [promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise):
 
 ```javascript
-import fetch, { settings }  from 'fetch-with-token';
+import fetch, { settings }  from 'cross-fetch-with-token';
 settings.urlToken = 'https://yourdomain.com/api/connect/token/';
 settings.clientData = {
     clientId: 'clientId',

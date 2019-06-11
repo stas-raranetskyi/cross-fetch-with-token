@@ -1,7 +1,7 @@
 {
   "name": "cross-fetch-with-token",
   "version": "1.0.0",
-  "description": "fetch with token",
+  "description": "cross fetch with token",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -11,6 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
+    "cross",
     "fetch",
     "with",
     "token"
