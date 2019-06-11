@@ -1,9 +1,9 @@
-import fetch from 'cross-fetch';
-import tokenService from './token';
+const fetch = require('cross-fetch');
+const tokenService = require('./token');
 var counterRequest = 0;
 const rejectNotAuthorizedRequestText = 'Available number of requests exceeded';
 
-export default async function fetchWithToken(url, options = {}){
+module.exports = async function fetchWithToken(url, options = {}){
     let token = tokenService.get();
 
     options.headers = {

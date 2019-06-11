@@ -1,7 +1,7 @@
-import { makeURIParams } from '../helpers';
-import { getCookie, setCookie, deleteCookie } from '../helpers/cookie';
-import settings from '../settings';
-import fetch from 'cross-fetch';
+const { makeURIParams } = require('../helpers');
+const { getCookie, setCookie, deleteCookie } = require('../helpers/cookie');
+const settings = require('../settings');
+const fetch = require('cross-fetch');
 
 let doc = {
     cookie: ''
@@ -82,4 +82,4 @@ class Token{
     }
 }
 
-export default new Token(doc);
+module.exports = new Token(doc);

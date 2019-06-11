@@ -1,7 +1,7 @@
 
-export default {
+module.exports = {
     localStorePrefix: 'MY.APP',
-    urlToken: '/',
+    urlToken: '',
     expiresToken: 24 * 60 * 60,
     clientData: {},
 }
