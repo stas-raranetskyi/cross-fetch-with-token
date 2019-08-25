@@ -1,6 +1,6 @@
 {
   "name": "cross-fetch-with-token",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "cross fetch with token",
   "main": "index.js",
   "repository": {
@@ -19,6 +19,7 @@
   "author": "Stas Raranetskyi",
   "license": "ISC",
   "dependencies": {
-    "cross-fetch": "^3.0.4"
+    "cross-fetch": "^3.0.4",
+    "jwt-decode": "^2.2.0"
   }
 }
