@@ -1,31 +1,36 @@
-const fetch = require('cross-fetch');
-const tokenService = require('./token');
-const { isTokenExpire } = require('../helpers');
+import fetch from 'cross-fetch';
+import { isTokenExpire } from '../helpers';
+import { Token } from './token';
+const tokenService = Token.getInstance();
 const queueRequests = [];
-var busy = false;
-var tokenTry = 0;
+let busy = false;
+let tokenTry = 0;
 
-module.exports = async function fetchWithToken(url, options = {}){
-    let fetchWithTokenResolve, fetchWithTokenReject;
+function executeQueue() {
+    queueRequests.map((req) => req());
+}
+
+export default async function fetchWithToken(url: string, options: object = {}) {
+    let fetchWithTokenResolve: any;
+    let fetchWithTokenReject: any;
     const requestPromise = new Promise((resolve, reject) => {
         fetchWithTokenResolve = resolve;
         fetchWithTokenReject = reject;
     });
 
     const requestFn = () => {
-        let token = tokenService.get();
-        options.headers = {
-            ...options.headers,
+        const token: string = tokenService.get();
+        const opts: any = {
+            ...options,
+            'Accept': 'application/vnd.api+json',
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/vnd.api+json',
-            'Accept': 'application/vnd.api+json'
         };
 
-        fetch(url, options).then(async response => {
+        fetch(url, opts).then(async (response) => {
             try {
                 fetchWithTokenResolve(response);
-            }
-            catch (err) {
+            } catch (err) {
                 fetchWithTokenReject(err);
             }
         }).catch((err) => {
@@ -35,24 +40,22 @@ module.exports = async function fetchWithToken(url, options = {}){
 
     let token = tokenService.get();
 
-    if(isTokenExpire(token)) {
+    if (isTokenExpire(token)) {
         token = null;
     }
 
-    if(!token || busy){
+    if (!token || busy) {
         busy = true;
         queueRequests.push(requestFn);
-        if(!token && !tokenTry) {
+        if (!token && !tokenTry) {
             tokenTry++;
             token = await tokenService.update();
             busy = false;
             tokenTry = 0;
             executeQueue();
         }
-    }
-    else{
+    } else {
         requestFn();
     }
-
     return requestPromise;
 }
