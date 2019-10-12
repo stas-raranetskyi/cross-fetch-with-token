@@ -1,10 +1,10 @@
-module.exports.getCookie = function(name, document) {
+export const getCookie = (name, document) => {
     /*eslint-disable no-useless-escape*/
     const matches = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)'));
     return matches ? decodeURIComponent(matches[1]) : null;
-}
+};
 
-module.exports.setCookie = function setCookie(name, value, document, options = {}) {
+export const setCookie = (name, value, document, options) => {
     let expires = options.expires;
 
     if (typeof expires === 'number' && expires) {
@@ -28,16 +28,15 @@ module.exports.setCookie = function setCookie(name, value, document, options = {
         }
     }
 
-    if(typeof document !== 'undefined' && document){
+    if (typeof document !== 'undefined' && document) {
         document.cookie = updatedCookie;
-    }
-    else{
+    } else{
         return updatedCookie;
     }
-}
+};
 
-module.exports.deleteCookie = function(name) {
-    setCookie(name, '', {
-        expires: -1
+export const deleteCookie = (name, document) => {
+    setCookie(name, '', document, {
+        expires: -1,
     });
-}
+};

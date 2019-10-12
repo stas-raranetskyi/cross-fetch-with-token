@@ -1,8 +1,11 @@
 {
   "name": "cross-fetch-with-token",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "description": "cross fetch with token",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "files": [
+    "dist/"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/stas-raranetskyi/cross-fetch-with-token"
@@ -18,8 +21,10 @@
   ],
   "author": "Stas Raranetskyi",
   "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^12.7.12"
+  },
   "dependencies": {
-    "@types/node": "^12.7.12",
     "cross-fetch": "^3.0.4",
     "jwt-decode": "^2.2.0"
   }
