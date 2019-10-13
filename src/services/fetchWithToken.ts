@@ -10,7 +10,7 @@ function executeQueue() {
     queueRequests.map((req) => req());
 }
 
-export default async function fetchWithToken(url: string, options: object = {}) {
+export default async function fetchWithToken(url: string, options: object) {
     let fetchWithTokenResolve: any;
     let fetchWithTokenReject: any;
     const requestPromise = new Promise((resolve, reject) => {
@@ -20,11 +20,20 @@ export default async function fetchWithToken(url: string, options: object = {}) 
 
     const requestFn = () => {
         const token: string = tokenService.get();
-        const opts: any = {
-            ...options,
-            'Accept': 'application/vnd.api+json',
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/vnd.api+json',
+        let opts: any = {};
+
+        if (options) {
+            opts = {
+                ...options,
+            };
+        }
+        opts = {
+            ...opts,
+            headers: {
+                'Accept': 'application/vnd.api+json',
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/vnd.api+json',
+            },
         };
 
         fetch(url, opts).then(async (response) => {

@@ -1,6 +1,6 @@
 {
   "name": "cross-fetch-with-token",
-  "version": "1.2.2",
+  "version": "1.2.5",
   "description": "cross fetch with token",
   "main": "./dist/index.js",
   "files": [
